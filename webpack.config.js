@@ -112,6 +112,7 @@ const config = {
         target: 'https://sdkfinance.app/api/v1',
         secure: false,
         changeOrigin: true,
+        open: true,
         pathRewrite: { '^/api/v1': '' },
       },
     },
