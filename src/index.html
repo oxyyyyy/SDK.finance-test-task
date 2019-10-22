@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
     <title>Authorization</title>
-</head>
-<body>
-    <h1>Authorization</h1>
-</body>
+  </head>
+  <body>
+    <div class="uk-container">
+      <h1 class="uk-heading-medium uk-text-center uk-margin-large-top">
+        Authorization
+      </h1>
+      <div class="uk-flex uk-flex-center">
+        <div
+          class="uk-card uk-card-default uk-padding uk-flex uk-flex-center uk-animation-slide-bottom-small"
+        >
+          <form id="login-form">
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input
+                  id="login-user"
+                  class="uk-input"
+                  type="text"
+                  placeholder="User"
+                />
+              </div>
+            </div>
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <span
+                  class="uk-form-icon uk-form-icon-flip"
+                  uk-icon="icon: lock"
+                ></span>
+                <input
+                  id="login-password"
+                  class="uk-input"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-center">
+              <button type="submit" class="uk-button uk-button-default">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
+    <script src="../node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+  </body>
 </html>

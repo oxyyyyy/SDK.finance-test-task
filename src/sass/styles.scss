@@ -1,10 +1,7 @@
-$color: teal;
+@import "~uikit";
 
-h1 {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-  background-color: $color;
-  color: white;
-  text-align: center;
+body {
+  background-image: url("https://i.ibb.co/zFKmZyx/triangle-mosaic.png");
+  background-repeat: repeat;
+  min-height: 100vh;
 }
