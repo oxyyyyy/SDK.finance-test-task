@@ -1,37 +1,41 @@
 import '../sass/styles.scss';
 import UIkit from 'uikit';
-import axios from 'axios';
+import { postAuthorization, USER } from './services/service';
+import { handleError } from './modules/handleError';
+
 
 const TESTUSER = {
-  name: 'administrator@sdkfinance.app',
+  email: 'administrator@sdkfinance.app',
   password: 'SfEFNbrdnusx8jXzgy8w',
 };
 
-const USER = {
-  name: undefined,
-  password: undefined,
+const validateEmail = (email) => {
+  const RE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return RE.test(String(email).toLowerCase());
 };
 
-document.querySelector('#login-form').addEventListener('submit', (e) => {
-  e.preventDefault();
+const validateNotEmpty = (val) => (val.length);
 
-  USER.name = document.querySelector('#login-user').value;
-  USER.password = document.querySelector('#login-password').value;
-  console.log(USER);
+if (document.querySelector('#login-form')) {
+  document.querySelector('#login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  axios
-    .post('/api/v1/authorization', {
-      login: USER.name,
-      password: USER.password,
-    })
-    .then((response) => {
-      console.log(response);
-      localStorage.setItem('token', response.data.authorizationToken.token);
-    })
-    .catch((error) => {
-      document.querySelector('#login-user').classList.add('uk-form-danger');
-      document.querySelector('#login-password').classList.add('uk-form-danger');
-      UIkit.notification(`<span uk-icon='icon: ban'></span> ${error}`, { status: 'danger', pos: 'top-right' });
-      console.log(error);
-    });
-});
+    const userInput = document.querySelector('#login-user');
+    const passwordInput = document.querySelector('#login-password');
+    USER.email = userInput.value;
+    USER.password = passwordInput.value;
+    console.log(USER);
+
+    if (!validateEmail(USER.email)) {
+      handleError(userInput, 'E-mail is not valid');
+      return false;
+    }
+
+    if (!validateNotEmpty(USER.password)) {
+      handleError(passwordInput, 'Field is empty');
+      return false;
+    }
+
+    postAuthorization();
+  });
+}
