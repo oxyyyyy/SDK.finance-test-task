@@ -1,20 +1,7 @@
 import '../sass/styles.scss';
-import UIkit from 'uikit';
-import { postAuthorization, USER } from './services/service';
+import { postAuthorization, getUsers, USER } from './services/service';
 import { handleError } from './modules/handleError';
-
-
-const TESTUSER = {
-  email: 'administrator@sdkfinance.app',
-  password: 'SfEFNbrdnusx8jXzgy8w',
-};
-
-const validateEmail = (email) => {
-  const RE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return RE.test(String(email).toLowerCase());
-};
-
-const validateNotEmpty = (val) => (val.length);
+import { validateEmail, validateNotEmpty } from './modules/validation';
 
 if (document.querySelector('#login-form')) {
   document.querySelector('#login-form').addEventListener('submit', (e) => {
@@ -38,4 +25,12 @@ if (document.querySelector('#login-form')) {
 
     postAuthorization();
   });
+}
+
+if (document.querySelector('#users-table')) {
+  if (localStorage.getItem('token')) {
+    getUsers();
+  } else {
+    window.location.href = '/';
+  }
 }
