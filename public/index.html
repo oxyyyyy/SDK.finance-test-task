@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Authorization</title>
+  <link href="main.css" rel="stylesheet"></head>
+  <body>
+    <div class="uk-container">
+      <h1 class="uk-heading-medium uk-text-center uk-margin-large-top">
+        Authorization
+      </h1>
+      <div class="uk-flex uk-flex-center">
+        <div
+          class="uk-card uk-card-default uk-padding uk-flex uk-flex-center uk-animation-slide-bottom-small"
+        >
+          <form id="login-form">
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input
+                  id="login-user"
+                  class="uk-input"
+                  type="text"
+                  placeholder="User email"
+                />
+              </div>
+            </div>
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <span
+                  class="uk-form-icon uk-form-icon-flip"
+                  uk-icon="icon: lock"
+                ></span>
+                <input
+                  id="login-password"
+                  class="uk-input"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-center">
+              <button type="submit" class="uk-button uk-button-default">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="preloader">
+      <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="100px" height="100px" viewBox="0 0 128 128" xml:space="preserve"><g><path d="M64 9.75A54.25 54.25 0 0 0 9.75 64H0a64 64 0 0 1 128 0h-9.75A54.25 54.25 0 0 0 64 9.75z" fill="#000000" fill-opacity="1"/><animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1800ms" repeatCount="indefinite"></animateTransform></g></svg>
+    </div>
+    <script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
+    <script src="../node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
